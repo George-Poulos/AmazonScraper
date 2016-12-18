@@ -13,8 +13,8 @@ response = requests.get(url, headers={'User-agent': 'Mozilla/5.0 (Windows NT 6.2
 
 soup = BeautifulSoup(response.content)
 tags = {}
-divs = soup.select('table#productDetails_detailBullets_sections1 tr')
-for li in divs:
+tableEntries = soup.select('table#productDetails_detailBullets_sections1 tr')
+for li in tableEntries:
     try:
         title = li.th
         key = title.text.strip().rstrip(':')
